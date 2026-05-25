@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Valen Magical ✨ Accesorios & Papelería Kawaii Colombia</title>
+  <meta name="description" content="Tienda kawaii en Colombia 🇨🇴 Llaveros pixel art, straps para celular, collares, pulseras, papelería y stickers Sanrio. Hechos a mano con amor. Envíos a todo Colombia."/>
+  <meta name="keywords" content="accesorios kawaii colombia, papelería kawaii, llaveros pixel art, straps para celular kawaii, collares kawaii colombia, bisutería kawaii, stickers sanrio colombia, tienda kawaii virtual colombia"/>
+  <meta name="robots" content="index, follow"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Valen Magical ✨ Accesorios & Papelería Kawaii Colombia"/>
+  <meta property="og:description" content="Tienda kawaii colombiana. Llaveros, straps, collares, papelería y más. Hechos a mano. Envíos nacionales 🇨🇴"/>
+  <meta property="og:image" content="img/p12.jpeg"/>
+  <meta property="og:locale" content="es_CO"/>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"OnlineStore","name":"Valen Magical","description":"Tienda kawaii en Colombia. Accesorios únicos hechos a mano con amor.","address":{"@type":"PostalAddress","addressCountry":"CO"},"sameAs":["https://www.instagram.com/valen_magical","https://www.tiktok.com/@valen.magical"]}</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&family=Pacifico&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+  /* ── Variables ── */
+  :root{
+    --pk:#ff85b3; --hot:#ff4d94; --lav:#c9a7eb;
+    --deep:#6b3fa0; --med:#9b59b6;
+    --lpk:#ffe4f0; --llav:#f3ecff; --baby:#fff5fb;
+    --ylw:#ffe66d; --sp:rgba(255,133,179,.2);
+  }
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Nunito',sans-serif;background:var(--baby);color:var(--deep);overflow-x:hidden}
+
+  /* ── Custom cursor (positioned off-screen by default) ── */
+  #cur{
+    position:fixed;pointer-events:none;z-index:99999;
+    font-size:32px;top:-200px;left:-200px;
+    transform:translate(-50%,-50%);
+    filter:drop-shadow(0 0 8px rgba(255,77,148,.95)) drop-shadow(0 0 3px #fff);
+    will-change:left,top;
+  }
+  #cur-ring{
+    position:fixed;pointer-events:none;z-index:99998;
+    width:52px;height:52px;
+    border:3px solid rgba(255,133,179,.6);
+    box-shadow:0 0 10px rgba(255,77,148,.35), inset 0 0 10px rgba(255,77,148,.1);
+    border-radius:50%;top:-200px;left:-200px;
+    transform:translate(-50%,-50%);
+    will-change:left,top;
+    transition:left .1s ease,top .1s ease,width .2s,height .2s,border-color .2s;
+  }
+  .cspark{
+    position:fixed;pointer-events:none;z-index:99997;
+    font-size:14px;transform:translate(-50%,-50%);
+    animation:sparkanim .65s ease forwards;
+  }
+  @keyframes sparkanim{
+    0%{opacity:1;transform:translate(-50%,-50%) scale(1)}
+    100%{opacity:0;transform:translate(-50%,-90%) scale(.25)}
+  }
+  /* Hide cursor on touch devices */
+  @media(pointer:coarse){#cur,#cur-ring{display:none}}
+
+  /* ── Announcement bar ── */
+  .ann{
+    background:linear-gradient(90deg,var(--hot),var(--lav),var(--hot));
+    background-size:300% 100%;animation:grd 6s linear infinite;
+    color:#fff;font-weight:800;font-size:.8rem;padding:9px 0;
+    overflow:hidden;white-space:nowrap;
+  }
+  @keyframes grd{from{background-position:0 0}to{background-position:300% 0}}
+  .ann-inner{display:inline-flex;animation:tk 30s linear infinite}
+  .ann-inner span{padding:0 44px}
+  @keyframes tk{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ── Header ── */
+  header{
+    position:sticky;top:0;z-index:800;
+    background:rgba(255,245,251,.88);
+    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    border-bottom:2px solid rgba(255,133,179,.18);
+    padding:13px 36px;
+    display:flex;align-items:center;justify-content:space-between;gap:10px;
+  }
+  .logo{
+    font-family:'Pacifico',cursive;font-size:1.55rem;text-decoration:none;
+    background:linear-gradient(135deg,var(--hot),var(--lav));
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+    flex-shrink:0;
+  }
+  nav{display:flex;align-items:center;gap:22px}
+  nav a{text-decoration:none;color:var(--deep);font-weight:700;font-size:.87rem;position:relative;transition:color .2s}
+  nav a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:2px;background:var(--hot);border-radius:2px;transition:width .3s}
+  nav a:hover{color:var(--hot)}nav a:hover::after{width:100%}
+  .hicons{display:flex;gap:8px}
+  .hicons a{
+    width:34px;height:34px;border-radius:50%;background:var(--lpk);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--hot);font-size:.85rem;text-decoration:none;transition:all .25s;
+  }
+  .hicons a:hover{background:var(--hot);color:#fff;transform:translateY(-2px) scale(1.1)}
+  @media(max-width:680px){
+    nav{display:none}
+    header{padding:11px 14px}
+    .logo{font-size:1.3rem}
+  }
+
+  /* ── Sakura (pure CSS, 6 petals hardcoded) ── */
+  .petal{position:fixed;top:-40px;pointer-events:none;z-index:2;font-size:.95rem;opacity:.65;animation:pfll var(--d,9s) linear var(--dl,0s) infinite}
+  @keyframes pfll{
+    0%{transform:translateX(0) rotate(0deg);opacity:.65}
+    45%{transform:translateX(28px) rotate(175deg)}
+    100%{transform:translateX(-18px) rotate(360deg) translateY(105vh);opacity:0}
+  }
+
+  /* ── HERO ── */
+  #hero{
+    position:relative;min-height:100vh;
+    display:flex;align-items:center;justify-content:center;
+    text-align:center;overflow:hidden;
+  }
+  .hbg{
+    position:absolute;inset:0;z-index:0;
+    background:
+      radial-gradient(ellipse 80% 65% at 14% 42%,rgba(255,182,217,.52) 0%,transparent 56%),
+      radial-gradient(ellipse 65% 75% at 84% 20%,rgba(201,167,235,.44) 0%,transparent 56%),
+      radial-gradient(ellipse 55% 55% at 50% 92%,rgba(255,230,109,.18) 0%,transparent 54%),
+      linear-gradient(160deg,#fff8fd 0%,#f4e8ff 45%,#fff0f8 100%);
+  }
+  .hbg::after{
+    content:'';position:absolute;inset:0;
+    background-image:radial-gradient(circle,rgba(255,133,179,.14) 1.5px,transparent 1.5px),
+                     radial-gradient(circle,rgba(201,167,235,.11) 1.5px,transparent 1.5px);
+    background-size:46px 46px,72px 72px;
+    background-position:0 0,23px 23px;
+  }
+  /* Inline stars (CSS only) */
+  .hstar{position:absolute;opacity:.55;animation:twk var(--d,3s) ease-in-out infinite var(--dl,0s);font-size:var(--s,.9rem);pointer-events:none;z-index:1}
+  @keyframes twk{0%,100%{opacity:.12;transform:scale(.72) rotate(0deg)}50%{opacity:.9;transform:scale(1.28) rotate(18deg)}}
+
+  /* mascots */
+  .msc{position:absolute;pointer-events:none;z-index:3}
+  .msc-cat{bottom:6%;right:3%;width:105px;animation:bcat 2.4s ease-in-out infinite}
+  .msc-str{top:11%;left:3%;width:82px;animation:rstr 3.7s ease-in-out infinite}
+  .msc-bow{top:16%;right:6%;width:76px;animation:wbow 3s ease-in-out infinite}
+  .msc-cld{top:30%;left:1%;width:90px;animation:fcld 5.2s ease-in-out infinite}
+  @keyframes bcat{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-16px) rotate(3deg)}}
+  @keyframes rstr{0%,100%{transform:rotate(-8deg) scale(1)}50%{transform:rotate(8deg) scale(1.08)}}
+  @keyframes wbow{0%,100%{transform:rotate(0)}25%{transform:rotate(11deg)}75%{transform:rotate(-11deg)}}
+  @keyframes fcld{0%,100%{transform:translateY(0)}50%{transform:translateY(-11px)}}
+  @media(max-width:600px){
+    .msc-cat{width:68px;right:0;bottom:2%}
+    .msc-str{width:56px}
+    .msc-bow{width:52px;right:1%}
+    .msc-cld{display:none}
+  }
+
+  .hcont{position:relative;z-index:4;padding:40px 20px;max-width:700px;margin:0 auto}
+  .hbadge{
+    display:inline-block;background:#fff;border:2px solid var(--pk);
+    color:var(--hot);font-size:.72rem;font-weight:800;padding:6px 18px;
+    border-radius:50px;margin-bottom:20px;letter-spacing:2px;text-transform:uppercase;
+    box-shadow:0 4px 16px var(--sp);
+  }
+  h1.htit{
+    font-family:'Pacifico',cursive;
+    font-size:clamp(2.8rem,9vw,6rem);line-height:1.08;
+    background:linear-gradient(135deg,#ff4d94 0%,#c9a7eb 38%,#ff85b3 65%,#ffe66d 100%);
+    background-size:300% 300%;
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+    animation:rpan 5s ease infinite;margin-bottom:12px;
+  }
+  @keyframes rpan{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}
+  .hsub{font-size:clamp(.95rem,2.5vw,1.22rem);color:var(--deep);font-weight:700;margin-bottom:7px}
+  .htag{font-size:clamp(.82rem,2vw,1rem);color:var(--med);font-weight:600;margin-bottom:34px;line-height:1.9}
+  .hbtns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+  /* ── Buttons ── */
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:13px 26px;border-radius:50px;
+    font-family:'Nunito',sans-serif;font-weight:800;font-size:.92rem;
+    text-decoration:none;border:none;cursor:pointer;
+    transition:all .32s cubic-bezier(.34,1.56,.64,1);
+  }
+  .btn-p{background:linear-gradient(135deg,var(--hot),var(--lav));color:#fff;box-shadow:0 8px 24px rgba(255,77,148,.4)}
+  .btn-p:hover{transform:translateY(-4px) scale(1.04);box-shadow:0 14px 34px rgba(255,77,148,.5)}
+  .btn-w{background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;box-shadow:0 8px 24px rgba(37,211,102,.4)}
+  .btn-w:hover{transform:translateY(-4px) scale(1.04);box-shadow:0 14px 34px rgba(37,211,102,.5)}
+
+  /* ── Dividers ── */
+  .rainbow{height:6px;background:linear-gradient(90deg,#ff85b3,#c9a7eb,#ffe66d,#a8f0d4,#a8d8f0,#ff85b3);background-size:300% 100%;animation:rsl 3.5s linear infinite}
+  @keyframes rsl{from{background-position:0 0}to{background-position:300% 0}}
+  .sdiv{text-align:center;font-size:1.3rem;padding:16px 0;color:var(--pk);letter-spacing:12px}
+
+  /* ── Section commons ── */
+  section{position:relative;z-index:1;padding:72px 36px}
+  @media(max-width:640px){section{padding:52px 16px}}
+  .sdec{text-align:center;font-size:1.25rem;margin-bottom:7px}
+  .stit{
+    font-family:'Fredoka One',cursive;font-size:clamp(1.65rem,4vw,2.65rem);
+    text-align:center;margin-bottom:9px;
+    background:linear-gradient(135deg,var(--hot),var(--lav));
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  }
+  .ssub{text-align:center;color:var(--med);font-size:.93rem;font-weight:600;margin-bottom:44px}
+
+  /* ── CATEGORIES ── */
+  #cats-sec{background:#fff}
+  .cats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:16px;max-width:940px;margin:0 auto}
+  .cat-card{
+    background:var(--baby);border-radius:22px;padding:26px 14px;
+    text-align:center;text-decoration:none;color:var(--deep);
+    border:2px solid transparent;
+    transition:all .32s cubic-bezier(.34,1.56,.64,1);
+  }
+  .cat-card:hover{transform:translateY(-8px) scale(1.04);border-color:var(--pk);background:var(--lpk);box-shadow:0 14px 38px var(--sp)}
+  .cat-ico{font-size:2.3rem;display:block;margin-bottom:10px;animation:icb 2.2s ease-in-out infinite}
+  .cat-card:nth-child(2) .cat-ico{animation-delay:.2s}
+  .cat-card:nth-child(3) .cat-ico{animation-delay:.4s}
+  .cat-card:nth-child(4) .cat-ico{animation-delay:.6s}
+  .cat-card:nth-child(5) .cat-ico{animation-delay:.8s}
+  @keyframes icb{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-6px) scale(1.07)}}
+  .cat-name{font-family:'Fredoka One',cursive;font-size:.93rem}
+  .cat-hint{font-size:.72rem;color:var(--pk);font-weight:700;margin-top:3px}
+
+  /* ── GALLERY ── */
+  #gal{background:linear-gradient(170deg,var(--llav) 0%,var(--baby) 100%)}
+  .gnote{
+    display:block;text-align:center;font-size:.84rem;font-weight:700;color:var(--med);
+    margin:0 auto 28px;max-width:540px;
+    background:#fff;padding:8px 20px;border-radius:50px;border:1.5px dashed var(--pk);
+  }
+  /* filter buttons */
+  .gfilts{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:32px}
+  .gfb{
+    padding:7px 18px;border-radius:50px;border:2px solid var(--pk);
+    background:#fff;color:var(--hot);font-family:'Nunito',sans-serif;
+    font-weight:700;font-size:.8rem;cursor:pointer;transition:all .26s;
+  }
+  .gfb:hover,.gfb.on{
+    background:linear-gradient(135deg,var(--hot),var(--lav));
+    color:#fff;border-color:transparent;transform:translateY(-2px);box-shadow:0 5px 14px var(--sp);
+  }
+  /* photo grid */
+  .ggrid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(195px,1fr));
+    gap:12px;max-width:1180px;margin:0 auto;
+  }
+  @media(max-width:480px){.ggrid{grid-template-columns:repeat(2,1fr);gap:8px}}
+  .gitem{
+    position:relative;border-radius:20px;overflow:hidden;
+    aspect-ratio:1;cursor:pointer;background:var(--lpk);
+    transition:transform .35s cubic-bezier(.34,1.56,.64,1),box-shadow .35s;
+  }
+  .gitem:hover{transform:scale(1.06) translateY(-5px);box-shadow:0 18px 44px rgba(255,77,148,.28)}
+  .gitem img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .42s ease}
+  .gitem:hover img{transform:scale(1.09)}
+  /* soft edge overlay (cheap, GPU-friendly) */
+  .gitem::before{
+    content:'';position:absolute;inset:0;z-index:1;pointer-events:none;border-radius:20px;
+    background:radial-gradient(ellipse 92% 92% at 50% 50%,transparent 46%,rgba(243,236,255,.62) 72%,rgba(243,236,255,.96) 100%);
+  }
+  .gitem-ov{
+    position:absolute;inset:0;z-index:2;border-radius:20px;
+    background:rgba(255,133,179,.38);
+    display:flex;align-items:center;justify-content:center;
+    opacity:0;transition:opacity .28s;
+  }
+  .gitem:hover .gitem-ov{opacity:1}
+  .gitem-ov span{font-size:2.2rem;filter:drop-shadow(0 2px 5px rgba(255,77,148,.6))}
+  .gitem.hidden{display:none}
+  /* cta below gallery */
+  .gcta{text-align:center;margin-top:38px;display:flex;flex-direction:column;align-items:center;gap:10px}
+  .gcta p{font-size:.88rem;color:var(--med);font-weight:700}
+
+  /* ── LIGHTBOX ── */
+  #lbox{
+    position:fixed;inset:0;z-index:9999;
+    background:rgba(107,63,160,.7);backdrop-filter:blur(7px);
+    display:flex;align-items:center;justify-content:center;padding:18px;
+    opacity:0;pointer-events:none;transition:opacity .28s;
+  }
+  #lbox.open{opacity:1;pointer-events:all}
+  .lb-inner{
+    background:#fff;border-radius:28px;max-width:470px;width:100%;
+    overflow:hidden;position:relative;
+    transform:scale(.87);transition:transform .3s cubic-bezier(.34,1.56,.64,1);
+    box-shadow:0 28px 75px rgba(107,63,160,.38);
+  }
+  #lbox.open .lb-inner{transform:scale(1)}
+  #lb-img{width:100%;display:block;max-height:60vh;object-fit:cover}
+  .lb-body{padding:18px 20px 22px;text-align:center}
+  .lb-note{font-size:.82rem;color:var(--med);font-weight:600;margin-bottom:13px;line-height:1.6}
+  .lb-close{
+    position:absolute;top:10px;right:12px;z-index:10;
+    background:rgba(255,255,255,.92);border:none;border-radius:50%;
+    width:33px;height:33px;font-size:1.05rem;cursor:pointer;
+    color:var(--deep);display:flex;align-items:center;justify-content:center;
+    transition:all .2s;
+  }
+  .lb-close:hover{background:var(--hot);color:#fff;transform:scale(1.1)}
+
+  /* ── HISTORIA ── */
+  #hist{background:var(--llav)}
+  .hist-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;max-width:750px;margin:0 auto}
+  @media(max-width:620px){.hist-grid{grid-template-columns:1fr}}
+  .hcard{background:#fff;border-radius:26px;padding:30px 24px;border:2px solid rgba(255,133,179,.18);box-shadow:0 4px 20px var(--sp)}
+  .hcard h3{font-family:'Fredoka One',cursive;font-size:1.18rem;color:var(--deep);margin-bottom:12px}
+  .hcard p{font-size:.89rem;color:var(--med);font-weight:600;line-height:1.85;margin-bottom:10px}
+  .hcard p:last-child{margin-bottom:0}
+  .hvis{text-align:center}
+  .hbig{font-size:5rem;display:block;margin-bottom:13px;animation:icb 2.8s ease-in-out infinite}
+  .hvtit{font-family:'Fredoka One',cursive;font-size:1.4rem;margin-bottom:8px;background:linear-gradient(135deg,var(--hot),var(--lav));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .hvp{font-size:.84rem;color:var(--med);font-weight:600;line-height:1.7;margin-bottom:16px}
+  .chips{display:flex;gap:7px;justify-content:center;flex-wrap:wrap}
+  .chip{font-weight:800;font-size:.73rem;padding:5px 12px;border-radius:50px}
+
+  /* ── CÓMO COMPRAR ── */
+  #como{background:#fff}
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px;max-width:940px;margin:0 auto 32px}
+  .step{background:var(--baby);border-radius:22px;padding:26px 16px;text-align:center;box-shadow:0 4px 16px var(--sp);transition:transform .3s}
+  .step:hover{transform:translateY(-7px)}
+  .snum{width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,var(--hot),var(--lav));display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin:0 auto 11px;box-shadow:0 5px 14px var(--sp)}
+  .step h4{font-family:'Fredoka One',cursive;font-size:.98rem;color:var(--deep);margin-bottom:6px}
+  .step p{font-size:.8rem;color:var(--med);font-weight:600;line-height:1.6}
+  .pay-box{max-width:620px;margin:0 auto;background:linear-gradient(135deg,var(--hot),var(--lav));border-radius:18px;padding:20px 24px;text-align:center;color:#fff;box-shadow:0 10px 30px var(--sp)}
+  .pay-box h4{font-family:'Fredoka One',cursive;font-size:1.08rem;margin-bottom:6px}
+  .pay-box p{font-size:.84rem;font-weight:600;opacity:.95;line-height:1.7}
+
+  /* ── POR QUÉ ── */
+  #porque{background:var(--llav)}
+  .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(195px,1fr));gap:22px;max-width:940px;margin:0 auto}
+  .wcard{text-align:center;padding:34px 18px;background:#fff;border-radius:24px;border:2px solid transparent;transition:transform .32s cubic-bezier(.34,1.56,.64,1)}
+  .wcard:hover{transform:translateY(-8px);border-color:var(--pk);box-shadow:0 14px 38px var(--sp)}
+  .wico{font-size:2.7rem;margin-bottom:12px;display:block}
+  .wtit{font-family:'Fredoka One',cursive;font-size:1.12rem;color:var(--deep);margin-bottom:8px}
+  .wtxt{font-size:.85rem;color:var(--med);font-weight:600;line-height:1.7}
+
+  /* ── REDES ── */
+  #redes{background:linear-gradient(135deg,#fff5fb,var(--llav),#fff5fb)}
+  .soc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:18px;max-width:840px;margin:0 auto}
+  .soc-card{border-radius:22px;padding:32px 20px;text-align:center;text-decoration:none;color:#fff;transition:all .35s cubic-bezier(.34,1.56,.64,1)}
+  .soc-card:hover{transform:translateY(-8px) scale(1.03);box-shadow:0 18px 48px rgba(0,0,0,.2)}
+  .soc-card.ig{background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)}
+  .soc-card.wa{background:linear-gradient(135deg,#25d366,#128c7e)}
+  .soc-card.tt{background:linear-gradient(135deg,#010101 0%,#ee1d52 50%,#69c9d0 100%)}
+  .sico{font-size:2.3rem;margin-bottom:10px;display:block}
+  .shandle{font-family:'Fredoka One',cursive;font-size:1.25rem;margin-bottom:5px}
+  .sdesc2{font-size:.81rem;opacity:.92;font-weight:600}
+
+  /* ── FOOTER ── */
+  footer{background:linear-gradient(135deg,var(--deep),#3d1878);color:#fff;padding:46px 36px 26px;text-align:center}
+  .flogo{font-family:'Pacifico',cursive;font-size:1.85rem;color:var(--pk);margin-bottom:11px}
+  .ftxt{font-size:.87rem;opacity:.82;font-weight:600;line-height:1.9;margin-bottom:18px}
+  .fsoc{display:flex;gap:11px;justify-content:center;margin-bottom:22px}
+  .fsoc a{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:#fff;font-size:.95rem;text-decoration:none;transition:all .28s}
+  .fsoc a:hover{background:var(--pk);transform:translateY(-3px) scale(1.1)}
+  .fcopy{font-size:.74rem;opacity:.4}
+
+  /* ── Floating WhatsApp ── */
+  .wa-fab{
+    position:fixed;bottom:24px;right:24px;z-index:8000;
+    display:flex;align-items:center;gap:7px;
+    background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;
+    text-decoration:none;padding:12px 20px;border-radius:50px;
+    font-family:'Nunito',sans-serif;font-weight:800;font-size:.87rem;
+    box-shadow:0 8px 26px rgba(37,211,102,.5);
+    animation:wap 2.4s ease-in-out infinite;transition:transform .25s;
+  }
+  .wa-fab:hover{transform:scale(1.06) translateY(-3px)}
+  @keyframes wap{0%,100%{box-shadow:0 8px 26px rgba(37,211,102,.5)}50%{box-shadow:0 8px 36px rgba(37,211,102,.78),0 0 0 8px rgba(37,211,102,.1)}}
+
+  /* ── Reduced motion ── */
+  @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+  </style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div id="cur">✨</div>
+<div id="cur-ring"></div>
+
+<!-- SAKURA (pure CSS, zero JS) -->
+<div class="petal" style="left:7vw;--d:9s;--dl:0s">🌸</div>
+<div class="petal" style="left:21vw;--d:11s;--dl:2.3s">✿</div>
+<div class="petal" style="left:39vw;--d:8.5s;--dl:5s">🌺</div>
+<div class="petal" style="left:57vw;--d:12s;--dl:1.4s">🌸</div>
+<div class="petal" style="left:73vw;--d:9.5s;--dl:3.7s">❀</div>
+<div class="petal" style="left:89vw;--d:10.5s;--dl:7.2s">🌸</div>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="ann">
+  <div class="ann-inner">
+    <span>🌸 Envíos a todo Colombia 🇨🇴</span><span>✦ Accesorios kawaii únicos y artesanales ✦</span>
+    <span>🎀 Papelería · Bisutería · Stickers kawaii</span><span>💕 Hecho con amor · Pago por adelantado</span>
+    <span>⭐ Llaveros · Straps · Collares · Pulseras</span>
+    <span>🌸 Envíos a todo Colombia 🇨🇴</span><span>✦ Accesorios kawaii únicos y artesanales ✦</span>
+    <span>🎀 Papelería · Bisutería · Stickers kawaii</span><span>💕 Hecho con amor · Pago por adelantado</span>
+    <span>⭐ Llaveros · Straps · Collares · Pulseras</span>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <a href="#hero" class="logo">✨ Valen Magical</a>
+  <nav>
+    <a href="#cats-sec">Categorías</a>
+    <a href="#gal">Galería</a>
+    <a href="#hist">Nosotras</a>
+    <a href="#redes">Contacto</a>
+  </nav>
+  <div class="hicons">
+    <a href="https://www.instagram.com/valen_magical" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.tiktok.com/@valen.magical"  target="_blank" rel="noopener" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+    <a href="https://wa.me/573008324409"             target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+  </div>
+</header>
+
+<!-- ══ HERO ══ -->
+<section id="hero">
+  <div class="hbg"></div>
+
+  <!-- 12 static stars -->
+  <span class="hstar" style="left:5%;top:12%;--s:1rem;--d:3s;--dl:0s">✦</span>
+  <span class="hstar" style="left:18%;top:28%;--s:.72rem;--d:4s;--dl:.8s">✧</span>
+  <span class="hstar" style="left:33%;top:8%;--s:1.1rem;--d:2.5s;--dl:1.2s">⭐</span>
+  <span class="hstar" style="left:49%;top:18%;--s:.8rem;--d:3.5s;--dl:.3s">✨</span>
+  <span class="hstar" style="left:64%;top:7%;--s:1rem;--d:2.8s;--dl:1.8s">✦</span>
+  <span class="hstar" style="left:78%;top:22%;--s:.75rem;--d:4.2s;--dl:.6s">💫</span>
+  <span class="hstar" style="left:91%;top:14%;--s:1.1rem;--d:3.1s;--dl:2s">✧</span>
+  <span class="hstar" style="left:9%;top:72%;--s:.9rem;--d:3.8s;--dl:.4s">⭐</span>
+  <span class="hstar" style="left:26%;top:80%;--s:.72rem;--d:2.6s;--dl:1.5s">✦</span>
+  <span class="hstar" style="left:71%;top:78%;--s:.85rem;--d:3.3s;--dl:.9s">✨</span>
+  <span class="hstar" style="left:86%;top:68%;--s:1rem;--d:4s;--dl:1.1s">💫</span>
+  <span class="hstar" style="left:56%;top:84%;--s:.8rem;--d:3.6s;--dl:2.2s">✧</span>
+
+  <!-- Kawaii Cat -->
+  <div class="msc msc-cat" aria-hidden="true">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="50" cy="67" rx="27" ry="23" fill="#ffb7d5"/>
+      <circle cx="50" cy="37" r="25" fill="#ffb7d5"/>
+      <polygon points="27,20 18,4 36,15" fill="#ffb7d5"/><polygon points="73,20 82,4 64,15" fill="#ffb7d5"/>
+      <polygon points="27,20 21,9 34,17" fill="#ff85b3"/><polygon points="73,20 79,9 66,17" fill="#ff85b3"/>
+      <ellipse cx="40" cy="36" rx="5.5" ry="6.5" fill="#5a2d82"/>
+      <ellipse cx="60" cy="36" rx="5.5" ry="6.5" fill="#5a2d82"/>
+      <circle cx="41" cy="33" r="2.2" fill="white"/><circle cx="61" cy="33" r="2.2" fill="white"/>
+      <ellipse cx="50" cy="43" rx="3" ry="2" fill="#ff85b3"/>
+      <ellipse cx="35" cy="47" rx="6.5" ry="4" fill="rgba(255,100,160,.33)"/>
+      <ellipse cx="65" cy="47" rx="6.5" ry="4" fill="rgba(255,100,160,.33)"/>
+      <line x1="22" y1="43" x2="43" y2="45" stroke="#c9a7eb" stroke-width="1.4" stroke-linecap="round"/>
+      <line x1="22" y1="47" x2="43" y2="48" stroke="#c9a7eb" stroke-width="1.4" stroke-linecap="round"/>
+      <line x1="57" y1="45" x2="78" y2="43" stroke="#c9a7eb" stroke-width="1.4" stroke-linecap="round"/>
+      <line x1="57" y1="48" x2="78" y2="47" stroke="#c9a7eb" stroke-width="1.4" stroke-linecap="round"/>
+      <path d="M 46 47 Q 50 52 54 47" stroke="#9b6bc5" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+      <ellipse cx="36" cy="86" rx="10" ry="8" fill="#ffb7d5"/>
+      <ellipse cx="64" cy="86" rx="10" ry="8" fill="#ffb7d5"/>
+      <path d="M 77 65 Q 96 56 92 78 Q 86 96 76 88" stroke="#ff85b3" stroke-width="8" fill="none" stroke-linecap="round"/>
+      <path d="M 44 17 Q 50 22 56 17 Q 50 12 44 17" fill="#ffe66d"/>
+      <path d="M 44 17 Q 37 11 41 6 Q 46 13 44 17" fill="#ffe66d"/>
+      <path d="M 56 17 Q 63 11 59 6 Q 54 13 56 17" fill="#ffe66d"/>
+      <ellipse cx="50" cy="17" rx="3.5" ry="3.5" fill="#ff85b3"/>
+    </svg>
+  </div>
+
+  <!-- Kawaii Star -->
+  <div class="msc msc-str" aria-hidden="true">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="50,5 61,36 95,36 68,57 79,91 50,70 21,91 32,57 5,36 39,36" fill="#ffe66d"/>
+      <ellipse cx="40" cy="52" rx="5.5" ry="6" fill="#5a2d82"/>
+      <ellipse cx="60" cy="52" rx="5.5" ry="6" fill="#5a2d82"/>
+      <circle cx="41" cy="49" r="2" fill="white"/><circle cx="61" cy="49" r="2" fill="white"/>
+      <ellipse cx="50" cy="58" rx="4.5" ry="3" fill="#ff85b3"/>
+      <ellipse cx="36" cy="60" rx="4" ry="3" fill="rgba(255,133,179,.4)"/>
+      <ellipse cx="64" cy="60" rx="4" ry="3" fill="rgba(255,133,179,.4)"/>
+      <path d="M 46 60 Q 50 65 54 60" stroke="#9b6bc5" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+    </svg>
+  </div>
+
+  <!-- Bow -->
+  <div class="msc msc-bow" aria-hidden="true">
+    <svg viewBox="0 0 110 70" xmlns="http://www.w3.org/2000/svg">
+      <path d="M52 35 Q22 10 4 22 Q22 35 4 48 Q22 62 52 35" fill="#c9a7eb"/>
+      <path d="M52 35 Q28 14 14 24 Q28 35 14 46 Q28 56 52 35" fill="#dbbef7"/>
+      <path d="M58 35 Q88 10 106 22 Q88 35 106 48 Q88 62 58 35" fill="#c9a7eb"/>
+      <path d="M58 35 Q82 14 96 24 Q82 35 96 46 Q82 56 58 35" fill="#dbbef7"/>
+      <ellipse cx="55" cy="35" rx="10" ry="12" fill="#b39ddb"/>
+      <ellipse cx="55" cy="35" rx="6.5" ry="8.5" fill="#c9a7eb"/>
+    </svg>
+  </div>
+
+  <!-- Cloud -->
+  <div class="msc msc-cld" aria-hidden="true">
+    <svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="60" cy="56" rx="50" ry="22" fill="white"/>
+      <circle cx="35" cy="48" r="18" fill="white"/><circle cx="60" cy="40" r="24" fill="white"/><circle cx="85" cy="46" r="20" fill="white"/>
+      <ellipse cx="49" cy="54" rx="4" ry="4.5" fill="#5a2d82"/><ellipse cx="71" cy="54" rx="4" ry="4.5" fill="#5a2d82"/>
+      <circle cx="50" cy="52" r="1.5" fill="white"/><circle cx="72" cy="52" r="1.5" fill="white"/>
+      <path d="M55 58 Q60 63 65 58" stroke="#ff85b3" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    </svg>
+  </div>
+
+  <div class="hcont">
+    <div class="hbadge">✨ Papelería & Accesorios Kawaii ✨</div>
+    <h1 class="htit">Valen Magical</h1>
+    <p class="hsub">🌸 Accesorios únicos hechos con amor 💕</p>
+    <p class="htag">Llaveros · Straps · Collares · Pulseras · Papelería<br>🇨🇴 Envíos a todo Colombia</p>
+    <div class="hbtns">
+      <a href="#gal" class="btn btn-p">🛍️ Ver Galería</a>
+      <a href="https://wa.me/573008324409?text=Hola!%20Vi%20su%20página%20y%20quiero%20más%20información%20🌸" target="_blank" rel="noopener" class="btn btn-w">
+        <i class="fab fa-whatsapp"></i> Escríbenos
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="rainbow"></div>
+
+<!-- ══ CATEGORÍAS ══ -->
+<section id="cats-sec">
+  <div class="sdec">🌸 ✦ 🌸 ✦ 🌸</div>
+  <h2 class="stit">Nuestras Categorías</h2>
+  <p class="ssub">¡Hacemos de todo con mucho amor y creatividad! 💕</p>
+  <div class="cats-grid">
+    <a href="#gal" class="cat-card" data-filter="llaveros" onclick="setFilter('llaveros',event)">
+      <span class="cat-ico">🔑</span>
+      <div class="cat-name">Llaveros Kawaii</div>
+      <div class="cat-hint">Pixel Art · Perler Beads</div>
+    </a>
+    <a href="#gal" class="cat-card" data-filter="straps" onclick="setFilter('straps',event)">
+      <span class="cat-ico">📱</span>
+      <div class="cat-name">Straps & Charms</div>
+      <div class="cat-hint">Para celular & mochila</div>
+    </a>
+    <a href="#gal" class="cat-card" data-filter="collares" onclick="setFilter('collares',event)">
+      <span class="cat-ico">📿</span>
+      <div class="cat-name">Collares</div>
+      <div class="cat-hint">Fresas · Duraznos · Perlas</div>
+    </a>
+    <a href="#gal" class="cat-card" data-filter="bisuteria" onclick="setFilter('bisuteria',event)">
+      <span class="cat-ico">💎</span>
+      <div class="cat-name">Bisutería</div>
+      <div class="cat-hint">Pulseras de cristal</div>
+    </a>
+    <a href="#gal" class="cat-card" data-filter="papeleria" onclick="setFilter('papeleria',event)">
+      <span class="cat-ico">📚</span>
+      <div class="cat-name">Papelería</div>
+      <div class="cat-hint">Libretas · Stickers · Lapiceros</div>
+    </a>
+  </div>
+</section>
+
+<div class="sdiv">✦ ✧ ✦ ✧ ✦</div>
+
+<!-- ══ GALERÍA ══ -->
+<section id="gal">
+  <div class="sdec">💕 ✦ 💕 ✦ 💕</div>
+  <h2 class="stit">Nuestra Galería 🌸</h2>
+  <p class="ssub">Ejemplos de lo que creamos — ¡cada pieza es única! 🎀</p>
+  <span class="gnote">📸 Estas fotos son ejemplos de lo que hacemos — ¡escríbenos y creamos el tuyo!</span>
+
+  <div class="gfilts">
+    <button class="gfb on" data-cat="all">✨ Todo</button>
+    <button class="gfb" data-cat="llaveros">🔑 Llaveros</button>
+    <button class="gfb" data-cat="straps">📱 Straps</button>
+    <button class="gfb" data-cat="collares">📿 Collares</button>
+    <button class="gfb" data-cat="bisuteria">💎 Bisutería</button>
+    <button class="gfb" data-cat="papeleria">📚 Papelería</button>
+  </div>
+
+  <div class="ggrid" id="ggrid"></div>
+
+  <div class="gcta">
+    <p>¿Te enamoraste de algo? ¡Escríbenos y lo hacemos para ti! 💕</p>
+    <a href="https://wa.me/573008324409?text=Hola!%20Vi%20la%20galería%20y%20quiero%20información%20🌸✨" target="_blank" rel="noopener" class="btn btn-w">
+      <i class="fab fa-whatsapp"></i> Pedir información
+    </a>
+  </div>
+</section>
+
+<div class="rainbow"></div>
+
+<!-- ══ HISTORIA ══ -->
+<section id="hist">
+  <div class="sdec">💕 ✦ 💕</div>
+  <h2 class="stit">Nuestra Historia 🌸</h2>
+  <p class="ssub">El amor kawaii que nació en familia 🎀</p>
+  <div class="hist-grid">
+    <div class="hcard">
+      <h3>¡Hola, somos Valen Magical! 💜</h3>
+      <p>Somos un emprendimiento <strong style="color:var(--hot)">madre e hija</strong> unidas por la pasión por todo lo kawaii. Nació de un sueño sencillo: crear accesorios únicos y llenos de ternura que hicieran sonreír a quienes los usaran. 🌸</p>
+      <p>Cada llavero, strap, collar y accesorio que encontrarás aquí es elaborado con <strong style="color:var(--hot)">mucho amor y dedicación</strong>. Buscamos los mejores materiales para que cada pieza sea especial, ¡como tú! 💕</p>
+      <p>Somos 100% <strong style="color:var(--hot)">tienda virtual colombiana 🇨🇴</strong>. Nuestra mayor alegría es que abras tu paquete y te llenes de magia kawaii. ✨</p>
+    </div>
+    <div class="hvis">
+      <span class="hbig">👩‍👧</span>
+      <div class="hvtit">Madre & Hija</div>
+      <p class="hvp">Emprendedoras apasionadas<br>por la cultura kawaii 🌸</p>
+      <div class="chips">
+        <span class="chip" style="background:var(--lpk);color:var(--hot)">🎀 Hecho a mano</span>
+        <span class="chip" style="background:var(--llav);color:var(--deep)">🇨🇴 Colombia</span>
+        <span class="chip" style="background:#fff9e0;color:#a07000">⭐ Con amor</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="rainbow"></div>
+
+<!-- ══ CÓMO COMPRAR ══ -->
+<section id="como">
+  <div class="sdec">🛍️ ✦ 🛍️</div>
+  <h2 class="stit">¿Cómo hacer tu pedido? ✨</h2>
+  <p class="ssub">¡Es muy fácil! Solo sigue estos pasos 🌸</p>
+  <div class="steps">
+    <div class="step">
+      <div class="snum">1️⃣</div>
+      <h4>Mira la galería</h4>
+      <p>Explora nuestras fotos y deja que algo te robe el corazón 💕</p>
+    </div>
+    <div class="step">
+      <div class="snum">2️⃣</div>
+      <h4>Escríbenos</h4>
+      <p>Contáctanos por WhatsApp o Instagram y cuéntanos qué quieres 🌸</p>
+    </div>
+    <div class="step">
+      <div class="snum">3️⃣</div>
+      <h4>Pago anticipado</h4>
+      <p>El pago es <strong style="color:var(--hot)">100% por adelantado</strong> para confirmar y alistar tu pedido 💜</p>
+    </div>
+    <div class="step">
+      <div class="snum">4️⃣</div>
+      <h4>¡Recibe tu pedido!</h4>
+      <p>Enviamos a todo Colombia 🇨🇴 ¡Prepárate para la caja más kawaii de tu vida! ✨</p>
+    </div>
+  </div>
+  <div class="pay-box">
+    <h4>💳 Información de Pago</h4>
+    <p>Los pedidos se confirman con el <strong>pago completo por adelantado</strong>.<br>
+    Aceptamos transferencias bancarias y Nequi 🇨🇴<br>
+    ¡Escríbenos y te damos todos los detalles! 💕</p>
+  </div>
+</section>
+
+<!-- ══ POR QUÉ ══ -->
+<section id="porque">
+  <div class="sdec">⭐ ✦ ⭐</div>
+  <h2 class="stit">¿Por qué elegirnos? 🤍</h2>
+  <p class="ssub">Porque lo kawaii merece lo mejor 🌸</p>
+  <div class="why-grid">
+    <div class="wcard"><span class="wico">🎀</span><div class="wtit">Hecho a Mano</div><p class="wtxt">Piezas únicas elaboradas con dedicación. No encontrarás nada igual en ningún otro lugar. 💕</p></div>
+    <div class="wcard"><span class="wico">🚚</span><div class="wtit">Envíos a Colombia</div><p class="wtxt">Enviamos a todo el territorio colombiano 🇨🇴. Tu pedido kawaii llega directo a tu puerta.</p></div>
+    <div class="wcard"><span class="wico">💌</span><div class="wtit">Empaque con Amor</div><p class="wtxt">Cada pedido se empaca de manera especial y tierna. ¡Abrirlo será toda una experiencia! 🌸</p></div>
+    <div class="wcard"><span class="wico">🌟</span><div class="wtit">Calidad Premium</div><p class="wtxt">Los mejores materiales para crear accesorios duraderos, brillantes y absolutamente adorables.</p></div>
+  </div>
+</section>
+
+<div class="sdiv">🌸 ✧ 🌸 ✧ 🌸</div>
+
+<!-- ══ REDES ══ -->
+<section id="redes">
+  <div class="sdec">🌸 ✦ 🌸</div>
+  <h2 class="stit">Encuéntranos 💕</h2>
+  <p class="ssub">Síguenos y contáctanos para hacer tu pedido ✨</p>
+  <div class="soc-grid">
+    <a href="https://www.instagram.com/valen_magical" target="_blank" rel="noopener" class="soc-card ig">
+      <span class="sico"><i class="fab fa-instagram"></i></span>
+      <div class="shandle">@valen_magical</div>
+      <div class="sdesc2">Fotos, novedades y toda la magia kawaii ✨</div>
+    </a>
+    <a href="https://www.tiktok.com/@valen.magical" target="_blank" rel="noopener" class="soc-card tt">
+      <span class="sico"><i class="fab fa-tiktok"></i></span>
+      <div class="shandle">@valen.magical</div>
+      <div class="sdesc2">Videos kawaii, unboxings y sorpresas 🎀</div>
+    </a>
+    <a href="https://wa.me/573008324409" target="_blank" rel="noopener" class="soc-card wa">
+      <span class="sico"><i class="fab fa-whatsapp"></i></span>
+      <div class="shandle">+57 300 832 4409</div>
+      <div class="sdesc2">¡Escríbenos y haz tu pedido ahora! 💕</div>
+    </a>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="flogo">✨ Valen Magical</div>
+  <p class="ftxt">Papelería kawaii · Accesorios · Bisutería · Stickers 🌸<br>Envíos a todo Colombia 🇨🇴 · Hecho con amor 💕</p>
+  <div class="fsoc">
+    <a href="https://www.instagram.com/valen_magical" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.tiktok.com/@valen.magical"  target="_blank" rel="noopener" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+    <a href="https://wa.me/573008324409"             target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+  </div>
+  <p class="fcopy">© 2025 Valen Magical · Colombia 🇨🇴 · Todos los derechos reservados ✨</p>
+</footer>
+
+<!-- FLOATING WA -->
+<a href="https://wa.me/573008324409?text=Hola!%20Vi%20su%20página%20y%20quiero%20información%20🌸✨" target="_blank" rel="noopener" class="wa-fab" aria-label="WhatsApp">
+  <i class="fab fa-whatsapp" style="font-size:1.2rem"></i> ¡Escríbenos! 🌸
+</a>
+
+<!-- LIGHTBOX -->
+<div id="lbox" role="dialog" aria-modal="true">
+  <div class="lb-inner">
+    <button class="lb-close" id="lbclose" aria-label="Cerrar">✕</button>
+    <img id="lb-img" src="" alt="Valen Magical producto"/>
+    <div class="lb-body">
+      <p class="lb-note">📸 Ejemplo de lo que creamos — cada pieza es única y hecha a mano con amor.<br>¿Te gustó? ¡Escríbenos y lo hacemos para ti! 💕</p>
+      <a id="lb-wa" href="#" target="_blank" rel="noopener" class="btn btn-w" style="width:100%;justify-content:center">
+        <i class="fab fa-whatsapp"></i> Quiero información 🌸
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ═══════════════════════════════
+   GALLERY DATA
+═══════════════════════════════ */
+const ITEMS = [
+  {f:'p01',c:'llaveros',  a:'Llaveros kawaii pixel art Colombia'},
+  {f:'p02',c:'llaveros',  a:'Llavero pixel art perler beads'},
+  {f:'p03',c:'straps',    a:'Strap para celular kawaii Colombia'},
+  {f:'p04',c:'straps',    a:'Strap con tassels kawaii'},
+  {f:'p05',c:'bisuteria', a:'Pulseras de cristal azul kawaii'},
+  {f:'p06',c:'collares',  a:'Collar fresa roja kawaii'},
+  {f:'p07',c:'collares',  a:'Collar fresa rosa kawaii'},
+  {f:'p08',c:'collares',  a:'Collar durazno kawaii Colombia'},
+  {f:'p09',c:'bisuteria', a:'Bisutería kawaii artesanal'},
+  {f:'p10',c:'bisuteria', a:'Accesorio kawaii Colombia'},
+  {f:'p11',c:'straps',    a:'Keychain lazo holográfico kawaii'},
+  {f:'p12',c:'straps',    a:'Colección straps kawaii Colombia'},
+  {f:'p13',c:'straps',    a:'Strap morado Sanrio Kuromi'},
+  {f:'p14',c:'straps',    a:'Strap para celular kawaii'},
+  {f:'p15',c:'straps',    a:'Strap colorido kawaii'},
+  {f:'p16',c:'straps',    a:'Keychain kawaii para mochila'},
+  {f:'p17',c:'papeleria', a:'Libreta Van Gogh kawaii'},
+  {f:'p18',c:'papeleria', a:'Libreta Minecraft kawaii'},
+  {f:'p19',c:'papeleria', a:'Pintura números Kuromi My Melody Sanrio'},
+  {f:'p20',c:'papeleria', a:'Papelería kawaii Colombia'},
+  {f:'p21',c:'papeleria', a:'Papelería kawaii artesanal'},
+  {f:'p22',c:'papeleria', a:'Lapiceros kawaii cocodrilo'},
+  {f:'p23',c:'papeleria', a:'Stickers Sanrio Colombia'},
+  {f:'p24',c:'papeleria', a:'Stickers kawaii Colombia'},
+];
+const WA_BASE = 'https://wa.me/573008324409?text=Hola!%20Vi%20la%20galería%20y%20quiero%20información%20sobre%20';
+
+/* ═══════════════════════════════
+   BUILD GALLERY
+═══════════════════════════════ */
+const grid = document.getElementById('ggrid');
+ITEMS.forEach(it => {
+  const d = document.createElement('div');
+  d.className = 'gitem';
+  d.dataset.cat = it.c;
+  d.innerHTML = `<img src="img/${it.f}.jpeg" alt="${it.a}" loading="lazy" width="400" height="400">
+                 <div class="gitem-ov"><span>🌸</span></div>`;
+  d.addEventListener('click', () => openLB(`img/${it.f}.jpeg`, it.a));
+  grid.appendChild(d);
+});
+
+/* ═══════════════════════════════
+   FILTER
+═══════════════════════════════ */
+function applyFilter(cat) {
+  document.querySelectorAll('.gitem').forEach(el => {
+    el.classList.toggle('hidden', cat !== 'all' && el.dataset.cat !== cat);
+  });
+}
+function setFilter(cat, e) {
+  if (e) e.preventDefault();
+  applyFilter(cat);
+  document.querySelectorAll('.gfb').forEach(b => b.classList.toggle('on', b.dataset.cat === cat));
+  setTimeout(() => document.getElementById('gal').scrollIntoView({behavior:'smooth', block:'start'}), 80);
+}
+document.querySelectorAll('.gfb').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.gfb').forEach(b => b.classList.remove('on'));
+    btn.classList.add('on');
+    applyFilter(btn.dataset.cat);
+  });
+});
+
+/* ═══════════════════════════════
+   LIGHTBOX
+═══════════════════════════════ */
+const lbox = document.getElementById('lbox');
+const lbImg = document.getElementById('lb-img');
+const lbWa  = document.getElementById('lb-wa');
+
+function openLB(src, alt) {
+  lbImg.src = src;
+  lbImg.alt = alt;
+  lbWa.href = WA_BASE + encodeURIComponent(alt) + '%20🌸';
+  lbox.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLB() {
+  lbox.classList.remove('open');
+  document.body.style.overflow = '';
+  setTimeout(() => { lbImg.src = ''; }, 350);
+}
+document.getElementById('lbclose').addEventListener('click', closeLB);
+lbox.addEventListener('click', e => { if (e.target === lbox) closeLB(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLB(); });
+
+/* ═══════════════════════════════
+   CURSOR  — only on pointer:fine (mouse/trackpad)
+   Positioned via left/top with rAF for smoothness
+═══════════════════════════════ */
+if (window.matchMedia('(pointer:fine)').matches) {
+  const cur  = document.getElementById('cur');
+  const ring = document.getElementById('cur-ring');
+  let tx = -200, ty = -200, rx = -200, ry = -200;
+  let lastSpark = 0;
+  const SPARKS = ['🌸','✨','💕','⭐','🎀','💫','🌟'];
+
+  // move cursor exactly with mouse, ring with lag
+  function rafLoop() {
+    cur.style.left  = tx + 'px';
+    cur.style.top   = ty + 'px';
+    rx += (tx - rx) * 0.13;
+    ry += (ty - ry) * 0.13;
+    ring.style.left = rx + 'px';
+    ring.style.top  = ry + 'px';
+    requestAnimationFrame(rafLoop);
+  }
+  requestAnimationFrame(rafLoop);
+
+  document.addEventListener('mousemove', e => {
+    tx = e.clientX; ty = e.clientY;
+    const now = Date.now();
+    if (now - lastSpark > 140) {
+      lastSpark = now;
+      const s = document.createElement('div');
+      s.className = 'cspark';
+      s.textContent = SPARKS[Math.floor(Math.random() * SPARKS.length)];
+      s.style.left = tx + 'px';
+      s.style.top  = ty + 'px';
+      document.body.appendChild(s);
+      s.addEventListener('animationend', () => s.remove(), {once:true});
+    }
+  });
+
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => { cur.textContent = '🌟'; cur.style.fontSize = '36px'; });
+    el.addEventListener('mouseleave', () => { cur.textContent = '✨'; cur.style.fontSize = '32px'; });
+  });
+
+  // hide native cursor only after we know JS cursor works
+  document.body.style.cursor = 'none';
+}
+
+/* ═══════════════════════════════
+   SMOOTH SCROLL for anchor links
+═══════════════════════════════ */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({behavior:'smooth', block:'start'}); }
+  });
+});
+
+/* ═══════════════════════════════
+   PAUSE ANIMATIONS when tab hidden
+═══════════════════════════════ */
+document.addEventListener('visibilitychange', () => {
+  const s = document.hidden ? 'paused' : 'running';
+  document.querySelectorAll('.petal,.hstar,.msc *').forEach(el => el.style.animationPlayState = s);
+});
+</script>
+</body>
+</html>
