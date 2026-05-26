@@ -78,13 +78,32 @@
   @keyframes twk{0%,100%{opacity:.3;transform:scale(.7) rotate(0deg)}50%{opacity:1;transform:scale(1.25) rotate(18deg)}}
   @keyframes bcat{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-8px) rotate(2deg)}}
 
-  /* ── Pill Nav ── */
-  .nav-wrap{display:flex;justify-content:center;padding:10px 16px 16px;position:sticky;top:0;z-index:800;background:var(--crm)}
-  .pill-nav{background:white;border-radius:50px;border:2.5px solid var(--pk2);display:inline-flex;gap:2px;padding:5px 10px;box-shadow:0 4px 20px var(--shd);flex-wrap:wrap;justify-content:center}
-  .pill-nav a{padding:7px 13px;border-radius:50px;color:var(--txt3);font-weight:700;font-size:.77rem;text-decoration:none;transition:all .25s;white-space:nowrap;display:inline-flex;align-items:center;gap:3px}
-  .pill-nav a:hover,.pill-nav a.active{background:var(--pk2);color:white}
-  .pill-nav a.active{background:var(--pk)}
-  @media(max-width:580px){.pill-nav a{padding:5px 8px;font-size:.7rem}}
+  /* ── Kawaii Banner Nav ── */
+  .nav-wrap{padding:0;position:sticky;top:0;z-index:800;background:var(--crm)}
+  .kawaii-nav{width:100%;background:linear-gradient(90deg,#fff0f7 0%,#f5e8ff 35%,#e8f4ff 65%,#fff0f7 100%);
+    background-size:300% 100%;animation:navgrd 7s ease infinite;
+    border-top:3px solid var(--pk2);border-bottom:3px solid var(--pk2);
+    box-shadow:0 5px 20px var(--shd),inset 0 1px 0 var(--pk3),inset 0 -1px 0 var(--pk3);
+    position:relative}
+  @keyframes navgrd{0%,100%{background-position:0 50%}50%{background-position:100% 50%}}
+  .kawaii-nav-inner{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;padding:6px 50px;gap:0}
+  .kawaii-nav a{padding:7px 10px;color:var(--txt3);font-weight:700;font-size:.77rem;text-decoration:none;
+    transition:all .22s cubic-bezier(.34,1.56,.64,1);white-space:nowrap;border-radius:10px;position:relative}
+  .kawaii-nav a:hover{background:rgba(255,193,217,.38);color:var(--txt);transform:translateY(-3px)}
+  .kawaii-nav a.active{background:rgba(255,182,213,.52);color:var(--txt)}
+  .kawaii-nav a.active::after{content:'♥';position:absolute;bottom:-1px;left:50%;transform:translateX(-50%);font-size:.52rem;color:var(--pk)}
+  .nav-sep{color:rgba(255,140,180,.7);font-size:.62rem;padding:0 1px;user-select:none;align-self:center;pointer-events:none}
+  .nav-bow{position:absolute;top:50%;transform:translateY(-50%);font-size:1.3rem;pointer-events:none;z-index:2;
+    animation:bow-float 3.5s ease-in-out infinite}
+  .nav-bow.left{left:10px}
+  .nav-bow.right{right:10px;animation-delay:1.2s}
+  @keyframes bow-float{0%,100%{transform:translateY(-50%)}50%{transform:translateY(calc(-50% - 5px))}}
+  @media(max-width:640px){
+    .nav-bow{display:none}
+    .kawaii-nav-inner{padding:5px 8px}
+    .kawaii-nav a{font-size:.7rem;padding:5px 7px}
+    .nav-sep{padding:0}
+  }
 
   /* ── Pétalos ── */
   .petal{position:fixed;top:-40px;pointer-events:none;z-index:2;font-size:.85rem;opacity:.5;animation:pfll var(--d,9s) linear var(--dl,0s) infinite}
@@ -95,7 +114,12 @@
   .hero-inner{max-width:860px;margin:0 auto;display:flex;align-items:flex-end;gap:10px;justify-content:center}
   .hero-msc{flex-shrink:0}
   .hero-msc svg{width:105px;height:auto}
-  @media(max-width:680px){.hero-msc svg{width:68px}}
+  @media(max-width:680px){
+    .hero-msc svg{width:68px}
+    .hero-inner{position:relative}
+    .hero-msc.right{position:absolute;right:-10px;bottom:-30px;z-index:8}
+    .hero-msc.right svg{width:96px;filter:drop-shadow(0 0 10px white) drop-shadow(0 0 6px rgba(255,183,213,.95))}
+  }
   @media(max-width:440px){.hero-msc.left{display:none}}
 
   /* Foto con encaje */
@@ -103,11 +127,11 @@
   .lace-photo-inner{background:white;border-radius:22px;padding:9px;box-shadow:0 10px 40px var(--shd)}
   .lace-photo-inner img{width:100%;display:block;border-radius:14px;max-height:380px;object-fit:cover}
   /* Tiras de encaje (rellenas por JS) */
-  .lace-strip{position:absolute;left:-4px;right:-4px;height:30px;pointer-events:none;z-index:5;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 28'%3E%3Ccircle cx='6' cy='6' r='6' fill='%23ffc5da'/%3E%3Ccircle cx='19' cy='6' r='6' fill='%23ffc5da'/%3E%3Ccircle cx='32' cy='6' r='6' fill='%23ffc5da'/%3E%3Ccircle cx='44' cy='6' r='6' fill='%23ffc5da'/%3E%3Crect x='0' y='6' width='50' height='16' fill='%23ffc5da'/%3E%3Cpath d='M25 22 C19 17 12 13 12 8 C12 5 14 3.5 16 5 C19 7 22 9 25 12 C28 9 31 7 34 5 C36 3.5 38 5 38 8 C38 13 31 17 25 22Z' fill='white'/%3E%3Ccircle cx='6' cy='22' r='6' fill='%23ffc5da'/%3E%3Ccircle cx='19' cy='22' r='6' fill='%23ffc5da'/%3E%3Ccircle cx='32' cy='22' r='6' fill='%23ffc5da'/%3E%3Ccircle cx='44' cy='22' r='6' fill='%23ffc5da'/%3E%3Ccircle cx='12.5' cy='2' r='2' fill='white' opacity='.7'/%3E%3Ccircle cx='25' cy='2' r='2' fill='white' opacity='.7'/%3E%3Ccircle cx='37.5' cy='2' r='2' fill='white' opacity='.7'/%3E%3Ccircle cx='12.5' cy='26' r='2' fill='white' opacity='.7'/%3E%3Ccircle cx='25' cy='26' r='2' fill='white' opacity='.7'/%3E%3Ccircle cx='37.5' cy='26' r='2' fill='white' opacity='.7'/%3E%3C/svg%3E");
-    background-repeat:repeat-x;background-size:auto 30px}
-  .lace-strip.top{top:-15px}
-  .lace-strip.bot{bottom:-15px;transform:scaleY(-1)}
+  .lace-strip{position:absolute;left:-4px;right:-4px;height:44px;pointer-events:none;z-index:5;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 44'%3E%3Ccircle cx='10' cy='7' r='7' fill='%23ffc5da'/%3E%3Ccircle cx='30' cy='7' r='7' fill='%23ffc5da'/%3E%3Ccircle cx='50' cy='7' r='7' fill='%23ffc5da'/%3E%3Crect x='0' y='7' width='60' height='22' fill='%23ffc5da'/%3E%3Cpath d='M30 32 C22 25 14 20 14 13 C14 9 17 7 20 9 C23 11 26 14 30 18 C34 14 37 11 40 9 C43 7 46 9 46 13 C46 20 38 25 30 32Z' fill='white'/%3E%3Ccircle cx='10' cy='37' r='7' fill='%23ffc5da'/%3E%3Ccircle cx='30' cy='37' r='7' fill='%23ffc5da'/%3E%3Ccircle cx='50' cy='37' r='7' fill='%23ffc5da'/%3E%3Ccircle cx='10' cy='1' r='2' fill='white' opacity='.7'/%3E%3Ccircle cx='30' cy='1' r='2' fill='white' opacity='.7'/%3E%3Ccircle cx='50' cy='1' r='2' fill='white' opacity='.7'/%3E%3Ccircle cx='10' cy='43' r='2' fill='white' opacity='.7'/%3E%3Ccircle cx='30' cy='43' r='2' fill='white' opacity='.7'/%3E%3Ccircle cx='50' cy='43' r='2' fill='white' opacity='.7'/%3E%3C/svg%3E");
+    background-repeat:repeat-x;background-size:auto 44px}
+  .lace-strip.top{top:-22px}
+  .lace-strip.bot{bottom:-22px;transform:scaleY(-1)}
   /* Burbuja de diálogo */
   .speech-bub{position:absolute;top:18px;right:-12px;background:white;border-radius:18px 18px 18px 2px;padding:10px 15px;font-family:'Bubblegum Sans',cursive;font-size:.84rem;color:var(--txt);border:2.5px solid var(--pk2);box-shadow:0 4px 16px var(--shd);z-index:6;max-width:140px;line-height:1.45;text-align:center;animation:bcat 3.2s ease-in-out infinite .5s}
   @media(max-width:580px){.speech-bub{display:none}}
@@ -135,14 +159,15 @@
   /* ── PRODUCTOS DESTACADOS ── */
   #productos{background:var(--ylw)}
   .prod-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(195px,1fr));gap:18px;max-width:880px;margin:0 auto}
+  @media(max-width:520px){.prod-grid{grid-template-columns:repeat(2,1fr);gap:10px}}
   .prod-card{background:white;border-radius:20px;overflow:visible;box-shadow:0 6px 24px var(--shd);cursor:pointer;transition:transform .32s cubic-bezier(.34,1.56,.64,1),box-shadow .32s;position:relative}
   .prod-card:hover{transform:translateY(-8px) scale(1.03);box-shadow:0 18px 44px rgba(220,130,170,.3)}
   /* Encaje arriba y abajo de cada tarjeta de producto */
   .prod-card::before,.prod-card::after{content:'';position:absolute;left:-3px;right:-3px;height:24px;pointer-events:none;z-index:3;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 28'%3E%3Ccircle cx='6' cy='6' r='6' fill='%23ffc5da'/%3E%3Ccircle cx='19' cy='6' r='6' fill='%23ffc5da'/%3E%3Ccircle cx='32' cy='6' r='6' fill='%23ffc5da'/%3E%3Ccircle cx='44' cy='6' r='6' fill='%23ffc5da'/%3E%3Crect x='0' y='6' width='50' height='16' fill='%23ffc5da'/%3E%3Cpath d='M25 22 C19 17 12 13 12 8 C12 5 14 3.5 16 5 C19 7 22 9 25 12 C28 9 31 7 34 5 C36 3.5 38 5 38 8 C38 13 31 17 25 22Z' fill='white'/%3E%3Ccircle cx='6' cy='22' r='6' fill='%23ffc5da'/%3E%3Ccircle cx='19' cy='22' r='6' fill='%23ffc5da'/%3E%3Ccircle cx='44' cy='22' r='6' fill='%23ffc5da'/%3E%3C/svg%3E");
-    background-repeat:repeat-x;background-size:auto 24px}
-  .prod-card::before{top:-12px}
-  .prod-card::after{bottom:-12px;transform:scaleY(-1)}
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 44'%3E%3Ccircle cx='10' cy='7' r='7' fill='%23ffc5da'/%3E%3Ccircle cx='30' cy='7' r='7' fill='%23ffc5da'/%3E%3Ccircle cx='50' cy='7' r='7' fill='%23ffc5da'/%3E%3Crect x='0' y='7' width='60' height='22' fill='%23ffc5da'/%3E%3Cpath d='M30 32 C22 25 14 20 14 13 C14 9 17 7 20 9 C23 11 26 14 30 18 C34 14 37 11 40 9 C43 7 46 9 46 13 C46 20 38 25 30 32Z' fill='white'/%3E%3Ccircle cx='10' cy='37' r='7' fill='%23ffc5da'/%3E%3Ccircle cx='30' cy='37' r='7' fill='%23ffc5da'/%3E%3Ccircle cx='50' cy='37' r='7' fill='%23ffc5da'/%3E%3Ccircle cx='10' cy='1' r='2' fill='white' opacity='.7'/%3E%3Ccircle cx='30' cy='1' r='2' fill='white' opacity='.7'/%3E%3Ccircle cx='50' cy='1' r='2' fill='white' opacity='.7'/%3E%3Ccircle cx='10' cy='43' r='2' fill='white' opacity='.7'/%3E%3Ccircle cx='30' cy='43' r='2' fill='white' opacity='.7'/%3E%3Ccircle cx='50' cy='43' r='2' fill='white' opacity='.7'/%3E%3C/svg%3E");
+    background-repeat:repeat-x;background-size:auto 36px}
+  .prod-card::before{top:-18px}
+  .prod-card::after{bottom:-18px;transform:scaleY(-1)}
   .prod-img-wrap{overflow:hidden;border-radius:20px 20px 0 0;aspect-ratio:1}
   .prod-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
   .prod-card:hover .prod-img-wrap img{transform:scale(1.09)}
@@ -150,13 +175,17 @@
   .prod-img-wrap::after{content:'';position:absolute;inset:0;pointer-events:none;
     background:radial-gradient(ellipse 88% 88% at 50% 50%,transparent 50%,rgba(255,249,236,.55) 74%,rgba(255,249,236,.92) 100%)}
   .prod-label{padding:10px 14px;font-family:'Bubblegum Sans',cursive;font-size:1rem;text-align:center;color:white;border-radius:0 0 20px 20px}
+  @media(max-width:520px){.prod-label{padding:7px 8px;font-size:.85rem}}
   .prod-label.pk{background:linear-gradient(135deg,#ffb6d5,#ffc1d9)}
   .prod-label.lv{background:linear-gradient(135deg,#dda7e7,#c9a7eb)}
   .prod-label.bl{background:linear-gradient(135deg,#7ec8e3,#bde6ff);color:var(--txt2)}
   .prod-label.yw{background:linear-gradient(135deg,#ffe180,#ffd54f);color:var(--txt)}
 
   /* ── LACE BORDER (section dividers) ── */
-  .lace-border{line-height:0;display:block;overflow:visible;position:relative;z-index:5}
+  .lace-border{line-height:0;display:block;overflow:visible;position:relative;z-index:5;
+    height:44px;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 44'%3E%3Ccircle cx='10' cy='7' r='7' fill='%23ffc5da'/%3E%3Ccircle cx='30' cy='7' r='7' fill='%23ffc5da'/%3E%3Ccircle cx='50' cy='7' r='7' fill='%23ffc5da'/%3E%3Crect x='0' y='7' width='60' height='22' fill='%23ffc5da'/%3E%3Cpath d='M30 32 C22 25 14 20 14 13 C14 9 17 7 20 9 C23 11 26 14 30 18 C34 14 37 11 40 9 C43 7 46 9 46 13 C46 20 38 25 30 32Z' fill='white'/%3E%3Ccircle cx='10' cy='37' r='7' fill='%23ffc5da'/%3E%3Ccircle cx='30' cy='37' r='7' fill='%23ffc5da'/%3E%3Ccircle cx='50' cy='37' r='7' fill='%23ffc5da'/%3E%3Ccircle cx='10' cy='1' r='2' fill='white' opacity='.7'/%3E%3Ccircle cx='30' cy='1' r='2' fill='white' opacity='.7'/%3E%3Ccircle cx='50' cy='1' r='2' fill='white' opacity='.7'/%3E%3Ccircle cx='10' cy='43' r='2' fill='white' opacity='.7'/%3E%3Ccircle cx='30' cy='43' r='2' fill='white' opacity='.7'/%3E%3Ccircle cx='50' cy='43' r='2' fill='white' opacity='.7'/%3E%3C/svg%3E");
+    background-repeat:repeat-x;background-size:auto 44px}
 
   /* ── INFO ROW ── */
   #info-row{background:white}
@@ -300,6 +329,17 @@
   .pxh{position:absolute;pointer-events:none;z-index:2;height:auto;image-rendering:pixelated;animation:heartfloat var(--hd,5s) ease-in-out infinite var(--hdl,0s)}
   @keyframes heartfloat{0%,100%{transform:translateY(0) rotate(var(--hr,-5deg));opacity:.88}50%{transform:translateY(-10px) rotate(var(--hr2,5deg));opacity:1}}
 
+
+  /* ── PEEK MASCOTS (asoman por los lados) ── */
+  .peek-msc{position:absolute;pointer-events:none;z-index:10;width:80px;animation:peek-float 3.6s ease-in-out infinite}
+  .peek-msc.left{left:-38px}
+  .peek-msc.right{right:-38px}
+  .peek-msc svg{width:100%;height:auto;display:block}
+  @keyframes peek-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-13px)}}
+  .peek-msc.slow{animation-duration:5s}
+  .peek-msc.fast{animation-duration:2.6s}
+  @media(max-width:480px){.peek-msc{width:60px}.peek-msc.left{left:-28px}.peek-msc.right{right:-28px}}
+
   /* ── Reduced motion ── */
   @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
   </style>
@@ -378,17 +418,28 @@
   </div>
 </header>
 
-<!-- NAV PILL -->
+<!-- KAWAII NAV BANNER -->
 <div class="nav-wrap">
-  <nav class="pill-nav">
-    <a href="#hero-main" class="active">⭐ Inicio</a>
-    <a href="#productos">Tienda</a>
-    <a href="#gal" onclick="setFilter('bisuteria',event)">Pulseras</a>
-    <a href="#gal" onclick="setFilter('collares',event)">Collares</a>
-    <a href="#gal" onclick="setFilter('llaveros',event)">Llaveritos</a>
-    <a href="#gal" onclick="setFilter('straps',event)">Straps</a>
-    <a href="#hist">Nosotras</a>
-    <a href="#redes">Contacto</a>
+  <nav class="kawaii-nav" role="navigation" aria-label="Menú principal">
+    <span class="nav-bow left" aria-hidden="true">🎀</span>
+    <span class="nav-bow right" aria-hidden="true">🌸</span>
+    <div class="kawaii-nav-inner">
+      <a href="#hero-main" class="active">⭐ Inicio</a>
+      <span class="nav-sep" aria-hidden="true">✦</span>
+      <a href="#productos">🛍 Tienda</a>
+      <span class="nav-sep" aria-hidden="true">♥</span>
+      <a href="#gal" onclick="setFilter('bisuteria',event)">💎 Pulseras</a>
+      <span class="nav-sep" aria-hidden="true">✦</span>
+      <a href="#gal" onclick="setFilter('collares',event)">📿 Collares</a>
+      <span class="nav-sep" aria-hidden="true">♥</span>
+      <a href="#gal" onclick="setFilter('llaveros',event)">🔑 Llaveritos</a>
+      <span class="nav-sep" aria-hidden="true">✦</span>
+      <a href="#gal" onclick="setFilter('straps',event)">📱 Straps</a>
+      <span class="nav-sep" aria-hidden="true">♥</span>
+      <a href="#hist">🌸 Nosotras</a>
+      <span class="nav-sep" aria-hidden="true">✦</span>
+      <a href="#redes">💌 Contacto</a>
+    </div>
   </nav>
 </div>
 
@@ -492,6 +543,24 @@
       </div>
     </div>
   </div>
+  <div class="peek-msc right slow" style="top:45%;animation-delay:0.4s" aria-hidden="true">
+  <svg viewBox="0 0 70 80" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="14" cy="16" r="13" fill="#ffb7d5"/><circle cx="56" cy="16" r="13" fill="#ffb7d5"/>
+  <circle cx="14" cy="16" r="7" fill="#ff85b3"/><circle cx="56" cy="16" r="7" fill="#ff85b3"/>
+  <circle cx="35" cy="40" r="26" fill="#ffb7d5"/>
+  <ellipse cx="35" cy="50" rx="11" ry="7.5" fill="#ffd6ea"/>
+  <ellipse cx="35" cy="46" rx="3.8" ry="2.8" fill="#d4608a"/>
+  <ellipse class="eye-blink" cx="24" cy="37" rx="4.5" ry="5.5" fill="#3d2060"/>
+  <ellipse class="eye-blink" cx="46" cy="37" rx="4.5" ry="5.5" fill="#3d2060"/>
+  <circle cx="25.5" cy="34.5" r="1.8" fill="white"/><circle cx="47.5" cy="34.5" r="1.8" fill="white"/>
+  <ellipse cx="17" cy="47" rx="6" ry="4" fill="rgba(255,100,160,.28)"/>
+  <ellipse cx="53" cy="47" rx="6" ry="4" fill="rgba(255,100,160,.28)"/>
+  <path d="M30 54 Q35 60 40 54" stroke="#9b59b6" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+  <g class="bear-arm"><ellipse cx="60" cy="62" rx="7" ry="14" fill="#ffb7d5" transform="rotate(12 60 62)"/>
+  <ellipse cx="59" cy="76" rx="9" ry="6" fill="#ffb7d5"/></g>
+  <ellipse cx="35" cy="74" rx="22" ry="14" fill="#ffb7d5"/>
+</svg>
+  </div>
 </section>
 
 <div class="lace-border" aria-hidden="true"></div>
@@ -518,6 +587,31 @@
       <div class="prod-img-wrap"><img src="img/p11.jpeg" alt="Straps kawaii Colombia" loading="lazy"/></div>
       <div class="prod-label yw">📱 Straps</div>
     </div>
+  </div>
+  <div class="peek-msc left" style="top:38%;animation-delay:1s" aria-hidden="true">
+  <svg viewBox="0 0 70 70" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="35,4 43,27 67,27 48,43 55,66 35,51 15,66 22,43 3,27 27,27" fill="#fff2cc" stroke="#ffe180" stroke-width="1.5"/>
+  <ellipse class="eye-blink" cx="29" cy="39" rx="3.5" ry="4" fill="#5a2d82"/>
+  <ellipse class="eye-blink" cx="41" cy="39" rx="3.5" ry="4" fill="#5a2d82"/>
+  <circle cx="30.5" cy="37" r="1.4" fill="white"/><circle cx="42.5" cy="37" r="1.4" fill="white"/>
+  <ellipse cx="23" cy="44" rx="4" ry="3" fill="rgba(255,100,160,.3)"/>
+  <ellipse cx="47" cy="44" rx="4" ry="3" fill="rgba(255,100,160,.3)"/>
+  <path d="M28 47 Q35 53 42 47" stroke="#d4608a" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+</svg>
+  </div>
+  <div class="peek-msc right slow" style="top:65%;animation-delay:0.3s" aria-hidden="true">
+  <svg viewBox="0 0 80 55" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="24" cy="34" r="17" fill="#e8f4ff"/>
+  <circle cx="42" cy="25" r="20" fill="#e8f4ff"/>
+  <circle cx="60" cy="33" r="16" fill="#e8f4ff"/>
+  <rect x="9" y="33" width="62" height="18" fill="#e8f4ff"/>
+  <ellipse class="eye-blink" cx="37" cy="32" rx="3.5" ry="4" fill="#5a2d82"/>
+  <ellipse class="eye-blink" cx="49" cy="32" rx="3.5" ry="4" fill="#5a2d82"/>
+  <circle cx="38.8" cy="30" r="1.4" fill="white"/><circle cx="50.8" cy="30" r="1.4" fill="white"/>
+  <ellipse cx="29" cy="38" rx="5" ry="3.5" fill="rgba(255,100,160,.25)"/>
+  <ellipse cx="57" cy="38" rx="5" ry="3.5" fill="rgba(255,100,160,.25)"/>
+  <path d="M38 43 Q43 48 49 43" stroke="#9b59b6" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+</svg>
   </div>
 </section>
 
@@ -597,6 +691,31 @@
       <i class="fab fa-whatsapp"></i> Pedir información
     </a>
   </div>
+  <div class="peek-msc left" style="top:55%;animation-delay:0.6s" aria-hidden="true">
+  <svg viewBox="0 0 80 55" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="24" cy="34" r="17" fill="#e8f4ff"/>
+  <circle cx="42" cy="25" r="20" fill="#e8f4ff"/>
+  <circle cx="60" cy="33" r="16" fill="#e8f4ff"/>
+  <rect x="9" y="33" width="62" height="18" fill="#e8f4ff"/>
+  <ellipse class="eye-blink" cx="37" cy="32" rx="3.5" ry="4" fill="#5a2d82"/>
+  <ellipse class="eye-blink" cx="49" cy="32" rx="3.5" ry="4" fill="#5a2d82"/>
+  <circle cx="38.8" cy="30" r="1.4" fill="white"/><circle cx="50.8" cy="30" r="1.4" fill="white"/>
+  <ellipse cx="29" cy="38" rx="5" ry="3.5" fill="rgba(255,100,160,.25)"/>
+  <ellipse cx="57" cy="38" rx="5" ry="3.5" fill="rgba(255,100,160,.25)"/>
+  <path d="M38 43 Q43 48 49 43" stroke="#9b59b6" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+</svg>
+  </div>
+  <div class="peek-msc right slow" style="top:30%;animation-delay:1.2s" aria-hidden="true">
+  <svg viewBox="0 0 70 70" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="35,4 43,27 67,27 48,43 55,66 35,51 15,66 22,43 3,27 27,27" fill="#fff2cc" stroke="#ffe180" stroke-width="1.5"/>
+  <ellipse class="eye-blink" cx="29" cy="39" rx="3.5" ry="4" fill="#5a2d82"/>
+  <ellipse class="eye-blink" cx="41" cy="39" rx="3.5" ry="4" fill="#5a2d82"/>
+  <circle cx="30.5" cy="37" r="1.4" fill="white"/><circle cx="42.5" cy="37" r="1.4" fill="white"/>
+  <ellipse cx="23" cy="44" rx="4" ry="3" fill="rgba(255,100,160,.3)"/>
+  <ellipse cx="47" cy="44" rx="4" ry="3" fill="rgba(255,100,160,.3)"/>
+  <path d="M28 47 Q35 53 42 47" stroke="#d4608a" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+</svg>
+  </div>
 </section>
 
 <div class="lace-border" aria-hidden="true"></div>
@@ -659,6 +778,24 @@
       </div>
     </div>
   </div>
+  <div class="peek-msc left slow" style="top:60%;animation-delay:0.2s" aria-hidden="true">
+  <svg viewBox="0 0 70 80" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="14" cy="16" r="13" fill="#ffb7d5"/><circle cx="56" cy="16" r="13" fill="#ffb7d5"/>
+  <circle cx="14" cy="16" r="7" fill="#ff85b3"/><circle cx="56" cy="16" r="7" fill="#ff85b3"/>
+  <circle cx="35" cy="40" r="26" fill="#ffb7d5"/>
+  <ellipse cx="35" cy="50" rx="11" ry="7.5" fill="#ffd6ea"/>
+  <ellipse cx="35" cy="46" rx="3.8" ry="2.8" fill="#d4608a"/>
+  <ellipse class="eye-blink" cx="24" cy="37" rx="4.5" ry="5.5" fill="#3d2060"/>
+  <ellipse class="eye-blink" cx="46" cy="37" rx="4.5" ry="5.5" fill="#3d2060"/>
+  <circle cx="25.5" cy="34.5" r="1.8" fill="white"/><circle cx="47.5" cy="34.5" r="1.8" fill="white"/>
+  <ellipse cx="17" cy="47" rx="6" ry="4" fill="rgba(255,100,160,.28)"/>
+  <ellipse cx="53" cy="47" rx="6" ry="4" fill="rgba(255,100,160,.28)"/>
+  <path d="M30 54 Q35 60 40 54" stroke="#9b59b6" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+  <g class="bear-arm"><ellipse cx="60" cy="62" rx="7" ry="14" fill="#ffb7d5" transform="rotate(12 60 62)"/>
+  <ellipse cx="59" cy="76" rx="9" ry="6" fill="#ffb7d5"/></g>
+  <ellipse cx="35" cy="74" rx="22" ry="14" fill="#ffb7d5"/>
+</svg>
+  </div>
 </section>
 
 <div class="lace-border" aria-hidden="true"></div>
@@ -680,6 +817,20 @@
     Aceptamos transferencias bancarias y Nequi 🇨🇴<br>
     ¡Escríbenos y te damos todos los detalles! 💕</p>
   </div>
+  <div class="peek-msc right" style="top:45%;animation-delay:0.9s" aria-hidden="true">
+  <svg viewBox="0 0 80 55" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="24" cy="34" r="17" fill="#e8f4ff"/>
+  <circle cx="42" cy="25" r="20" fill="#e8f4ff"/>
+  <circle cx="60" cy="33" r="16" fill="#e8f4ff"/>
+  <rect x="9" y="33" width="62" height="18" fill="#e8f4ff"/>
+  <ellipse class="eye-blink" cx="37" cy="32" rx="3.5" ry="4" fill="#5a2d82"/>
+  <ellipse class="eye-blink" cx="49" cy="32" rx="3.5" ry="4" fill="#5a2d82"/>
+  <circle cx="38.8" cy="30" r="1.4" fill="white"/><circle cx="50.8" cy="30" r="1.4" fill="white"/>
+  <ellipse cx="29" cy="38" rx="5" ry="3.5" fill="rgba(255,100,160,.25)"/>
+  <ellipse cx="57" cy="38" rx="5" ry="3.5" fill="rgba(255,100,160,.25)"/>
+  <path d="M38 43 Q43 48 49 43" stroke="#9b59b6" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+</svg>
+  </div>
 </section>
 
 <!-- ══ POR QUÉ ══ -->
@@ -692,6 +843,35 @@
     <div class="wcard"><span class="wico">🚚</span><div class="wtit">Envíos a Colombia</div><p class="wtxt">Enviamos a todo el territorio colombiano 🇨🇴. Llega directo a tu puerta.</p></div>
     <div class="wcard"><span class="wico">💌</span><div class="wtit">Empaque con Amor</div><p class="wtxt">Cada pedido se empaca de manera especial y tierna. ¡Es toda una experiencia! 🌸</p></div>
     <div class="wcard"><span class="wico">🌟</span><div class="wtit">Calidad Premium</div><p class="wtxt">Los mejores materiales para accesorios duraderos y absolutamente adorables.</p></div>
+  </div>
+  <div class="peek-msc left fast" style="top:42%;animation-delay:0.5s" aria-hidden="true">
+  <svg viewBox="0 0 70 70" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="35,4 43,27 67,27 48,43 55,66 35,51 15,66 22,43 3,27 27,27" fill="#fff2cc" stroke="#ffe180" stroke-width="1.5"/>
+  <ellipse class="eye-blink" cx="29" cy="39" rx="3.5" ry="4" fill="#5a2d82"/>
+  <ellipse class="eye-blink" cx="41" cy="39" rx="3.5" ry="4" fill="#5a2d82"/>
+  <circle cx="30.5" cy="37" r="1.4" fill="white"/><circle cx="42.5" cy="37" r="1.4" fill="white"/>
+  <ellipse cx="23" cy="44" rx="4" ry="3" fill="rgba(255,100,160,.3)"/>
+  <ellipse cx="47" cy="44" rx="4" ry="3" fill="rgba(255,100,160,.3)"/>
+  <path d="M28 47 Q35 53 42 47" stroke="#d4608a" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+</svg>
+  </div>
+  <div class="peek-msc right slow" style="top:68%;animation-delay:1.4s" aria-hidden="true">
+  <svg viewBox="0 0 70 80" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="14" cy="16" r="13" fill="#ffb7d5"/><circle cx="56" cy="16" r="13" fill="#ffb7d5"/>
+  <circle cx="14" cy="16" r="7" fill="#ff85b3"/><circle cx="56" cy="16" r="7" fill="#ff85b3"/>
+  <circle cx="35" cy="40" r="26" fill="#ffb7d5"/>
+  <ellipse cx="35" cy="50" rx="11" ry="7.5" fill="#ffd6ea"/>
+  <ellipse cx="35" cy="46" rx="3.8" ry="2.8" fill="#d4608a"/>
+  <ellipse class="eye-blink" cx="24" cy="37" rx="4.5" ry="5.5" fill="#3d2060"/>
+  <ellipse class="eye-blink" cx="46" cy="37" rx="4.5" ry="5.5" fill="#3d2060"/>
+  <circle cx="25.5" cy="34.5" r="1.8" fill="white"/><circle cx="47.5" cy="34.5" r="1.8" fill="white"/>
+  <ellipse cx="17" cy="47" rx="6" ry="4" fill="rgba(255,100,160,.28)"/>
+  <ellipse cx="53" cy="47" rx="6" ry="4" fill="rgba(255,100,160,.28)"/>
+  <path d="M30 54 Q35 60 40 54" stroke="#9b59b6" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+  <g class="bear-arm"><ellipse cx="60" cy="62" rx="7" ry="14" fill="#ffb7d5" transform="rotate(12 60 62)"/>
+  <ellipse cx="59" cy="76" rx="9" ry="6" fill="#ffb7d5"/></g>
+  <ellipse cx="35" cy="74" rx="22" ry="14" fill="#ffb7d5"/>
+</svg>
   </div>
 </section>
 
@@ -758,12 +938,7 @@
 /* ═══════════════════════════════
    LACE BORDERS (genera el encaje en cada .lace-border)
 ═══════════════════════════════ */
-(function(){
-  const PAT=`<circle cx="10" cy="9" r="9" fill="#ffc5da"/><circle cx="30" cy="9" r="9" fill="#ffc5da"/><circle cx="50" cy="9" r="9" fill="#ffc5da"/><circle cx="70" cy="9" r="9" fill="#ffc5da"/><rect x="0" y="9" width="80" height="30" fill="#ffc5da"/><path d="M40 42 C29 33 17 26 17 17 C17 10 23 6 29 10 C32 12 36 15 40 19 C44 15 48 12 51 10 C57 6 63 10 63 17 C63 26 51 33 40 42Z" fill="white"/><path d="M8 27 C5 24 3 21 3 18 C3 15 5 13.5 7 15 C7.5 16 8 17 8 18 C8 17 8.5 16 9 15 C11 13.5 13 15 13 18 C13 21 11 24 8 27Z" fill="white" opacity="0.8"/><path d="M72 27 C69 24 67 21 67 18 C67 15 69 13.5 71 15 C71.5 16 72 17 72 18 C72 17 72.5 16 73 15 C75 13.5 77 15 77 18 C77 21 75 24 72 27Z" fill="white" opacity="0.8"/><circle cx="20" cy="3" r="2" fill="white" opacity="0.7"/><circle cx="40" cy="3" r="2" fill="white" opacity="0.7"/><circle cx="60" cy="3" r="2" fill="white" opacity="0.7"/><circle cx="0" cy="3" r="2" fill="white" opacity="0.7"/><circle cx="80" cy="3" r="2" fill="white" opacity="0.7"/><circle cx="10" cy="43" r="9" fill="#ffc5da"/><circle cx="30" cy="43" r="9" fill="#ffc5da"/><circle cx="50" cy="43" r="9" fill="#ffc5da"/><circle cx="70" cy="43" r="9" fill="#ffc5da"/><circle cx="20" cy="49" r="2" fill="white" opacity="0.7"/><circle cx="40" cy="49" r="2" fill="white" opacity="0.7"/><circle cx="60" cy="49" r="2" fill="white" opacity="0.7"/><circle cx="0" cy="49" r="2" fill="white" opacity="0.7"/><circle cx="80" cy="49" r="2" fill="white" opacity="0.7"/>`;
-  document.querySelectorAll('.lace-border').forEach((el,i)=>{
-    el.innerHTML=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 52" preserveAspectRatio="none" style="display:block;width:100%;height:52px"><defs><pattern id="lp${i}" x="0" y="0" width="80" height="52" patternUnits="userSpaceOnUse">${PAT}</pattern></defs><rect width="1440" height="52" fill="url(#lp${i})"/></svg>`;
-  });
-})();
+/* lace borders → CSS background-image */
 
 /* ═══════════════════════════════
    GALLERY DATA
